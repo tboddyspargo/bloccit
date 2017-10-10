@@ -7,6 +7,8 @@ require 'random_data'
   )
 end
 
+Post.find_or_create_by!(title: "This Title", body: "This body")
+
 posts = Post.all
 
 
