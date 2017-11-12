@@ -18,6 +18,9 @@ RSpec.describe Topic, type: :model do
       expect(topic).to have_attributes(name: name, description: description, public: public)
     end
     
+    it { is_expected.to validate_length_of(:name).is_at_least(5) }
+    it { is_expected.to validate_length_of(:description).is_at_least(15) }
+    
     it "is public by default" do
       expect(topic.public).to be(true)
     end
