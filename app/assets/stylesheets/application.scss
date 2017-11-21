@@ -17,9 +17,14 @@
 @import "bootstrap";
 
 .user-info {
-  margin-top: 9px;
+  margin-top: 5px;
 }
 
 .nav {
   margin-top: 5px;
+  .user-avatar {
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+  }
 }
