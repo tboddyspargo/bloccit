@@ -9,9 +9,17 @@ require 'random_data'
 end
 
 users = User.all
-user = users.first
-user.update_attributes!(
-  email: 'muyleche@gmail.com',
+
+admin = User.create!(
+  name: 'Admin User',
+  email: 'admin@bloccit.com',
+  password: 'p@ssw0rd',
+  role: 'admin'
+)
+
+member = User.create!(
+  name: 'Member User',
+  email: 'member@bloccit.com',
   password: 'p@ssw0rd'
 )
 
