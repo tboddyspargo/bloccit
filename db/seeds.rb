@@ -23,6 +23,13 @@ member = User.create!(
   password: 'p@ssw0rd'
 )
 
+moderator = User.create!(
+  name: 'Moderator User',
+  email: 'moderator@bloccit.com',
+  password: 'p@ssw0rd',
+  role: 'moderator'
+)
+
 15.times do
   Topic.create!(
     name: RandomData.random_sentence,
