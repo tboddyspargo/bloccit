@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <small><i><%= time_ago_in_words(comment.created_at) %> ago</i></small>
+    <% if user_is_authorized_for_comment?(comment) %>
+      <%= link_to [@post, comment], class: 'btn btn-xs btn-default pull-right', method: :delete do %>
+        <span class="glyphicon glyphicon-trash"></span>
+      <% end %>
+    <% end %>
+    <p><%= comment.body %></p>
+    <div class="text-right">
+      <small>– <%= comment.user.name %></small>
+    </div>
+  </div>
+</div>
