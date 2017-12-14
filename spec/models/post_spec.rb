@@ -72,4 +72,10 @@ RSpec.describe Post, type: :model do
       end
     end
   end
+  
+  describe "#create_vote" do
+    it "creates a vote for newly created post" do
+      expect(post.votes.sum(:value)).to eq(1)
+    end
+  end
 end
