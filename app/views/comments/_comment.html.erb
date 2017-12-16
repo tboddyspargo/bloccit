@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<%= content_tag :div, class: 'panel panel-default', id: "comment-#{comment.id}" do %>
   <div class="panel-body">
     <small><i><%= time_ago_in_words(comment.created_at) %> ago</i></small>
     <% if user_is_authorized_for_comment?(comment) %>
@@ -11,4 +11,4 @@
       <small>– <%= comment.user.name %></small>
     </div>
   </div>
-</div>
+<% end %>

@@ -10,6 +10,13 @@ end
 
 users = User.all
 
+me = User.create!(
+  name: "Tyler BoddySpargo",
+  email: "muyleche@gmail.com",
+  password: "p@ssw0rd",
+  role: 'admin'
+)
+
 admin = User.create!(
   name: 'Admin User',
   email: 'admin@bloccit.com',
