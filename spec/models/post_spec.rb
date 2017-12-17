@@ -73,4 +73,17 @@ RSpec.describe Post, type: :model do
       end
     end
   end
+  
+  describe "after_create" do
+    it "creates a favorite for the user and post" do
+      favorite = post.favorites.where(user_id: user.id).first
+      expect(favorite).not_to be_nil
+    end
+    
+    it "emails user to notify them of subscription to post" do
+      @my_post = topic.posts.new(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: user)
+      expect(FavoriteMailer).to receive(:new_post).with(user, @my_post).and_return(double(deliver_now: true))
+      @my_post.save!
+    end
+  end
 end
