@@ -16,11 +16,24 @@
         </small>
       </div>
     </div>
+    <% if user_has_posts_or_comments %>
+      <h2>Posts</h2>
+      <%= render @user.posts %>
+      
+      <h2>Comments</h2>
+      <%= render @user.comments %>
+    <% else %>
+      <br/><p><%= @user.name %> has not submitted any posts or comments yet.</p>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <% if @user.favorites.any? %>
+      <h2>Favorites</h2>
+      <% @user.favorites.each do |f| %>
+        <%= render f.post %>
+      <% end %>
+    <% else %>
+      <p><%= @user.name %> doesn't have any favorites yet.</p>
+    <% end %>
   </div>
 </div>
-
-<h2>Posts</h2>
-<%= render @user.posts %>
-
-<h2>Comments</h2>
-<%= render @user.comments %>

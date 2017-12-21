@@ -1,12 +1,22 @@
 <div class="media">
   <%= render partial: "votes/voting", locals: { post: post } %>
   <div class="media-body">
-    <h4 class="media-heading">
-      <%= link_to post.title, topic_post_path(post.topic, post) %>
-    </h4>
-    <small>
-      submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> <br/>
-      <%= pluralize(post.comments.count,"Comment") %>
+    <h3 class="media-heading">
+      <%= link_to post.title, topic_post_path(post.topic, post), class:"author-image-wrapper" %>
+    </h3>
+    <% avatar_url = post.user.avatar_url(28) %>
+    <% if avatar_url %>
+      <div class="author-image-wrapper media-left">
+        <%= image_tag avatar_url %>
+      </div>
+    <% end %>
+    <small class="media-left">
+      <%= post.user.name.split(' ').first %><br/>
+      <%= post.user.name.split(' ').last %>
+    </small>
+    <small class="media-right">
+      <%= time_ago_in_words(post.created_at).capitalize %> ago <br/>
+      <%= pluralize(post.comments.count,"comment") %>
     </small>
   </div>
 </div>
