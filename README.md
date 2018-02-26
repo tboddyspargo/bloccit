@@ -23,7 +23,7 @@ Rails made creating the data models easy by handling the object relational model
 
 The tests for Bloccit are written using the RSpec framework, which greatly facilitates writing concise, almost natural-language tests. I followed the principles of Test Driven Development (TDD) to write Bloccit, which meant that the tests came first. Writing the tests first helped me be very intentional about each distinct piece of functionality BEFORE its code even existed. It also helps ensure that as I continued to modify and re-organize the code I didn't loose track of everything that could be affected: if the tests started failing, I found out quickly and was able to correct any mistakes with much more ease.
 
-![Post form](https://tboddyspargo.github.io/img/bloccit_newpost1.png)
+![Post form](https://tboddyspargo.github.io/img/bloccit_post1.png)
 
 # FactoryBot
 
@@ -33,7 +33,7 @@ Factories are code controllers that allow you to generate instances of objects i
 
 Bloccit includes automated notification features that are provided by using an `ActionMailer`. This mailer can be triggered by actions and send emails to relevant parties. For example, Bloccit will email any users who have favorited a post if someone comments on it. This allows members to stay in the loop and participate in real-time to updates on a conversation.
 
-![Post page](https://tboddyspargo.github.io/img/bloccit_post1.png)
+![Post page](https://tboddyspargo.github.io/img/bloccit_email1.png)
 
 # Heroku
 

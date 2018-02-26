@@ -1,6 +1,6 @@
 class FavoriteMailer < ApplicationMailer
-  default from: "boddyspargo.tyler@gmail.com"
-  default cc: "adrian.wisernig@bloc.io;boddyspargo.tyler@gmail.com"
+  default from: "no-reply@bloccit.com"
+  default cc: "boddyspargo.tyler@gmail.com"
   
   def new_comment(user, post, comment)
     headers['Message-ID'] = "<comments/#{comment.id}@limitless-scrubland-98400.heroku.com>"
