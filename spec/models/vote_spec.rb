@@ -6,12 +6,12 @@ RSpec.describe Vote, type: :model do
   let(:post) { create(:post) }
   let(:vote) { Vote.create!(value: 1, post: post, user: user) }
   
-  it { is_expected.to belong_to(:post) }
-  it { is_expected.to belong_to(:user) }
+  it { should belong_to(:post) }
+  it { should belong_to(:user) }
   
-  it { is_expected.to validate_presence_of(:value) }
+  it { should validate_presence_of(:value) }
   
-  it { is_expected.to validate_inclusion_of(:value).in_array([-1, 1]) }
+  it { should validate_inclusion_of(:value).in_array([-1, 1]) }
   
   describe "update_post callback" do
     it "triggers update_post on save" do

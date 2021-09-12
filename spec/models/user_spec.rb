@@ -3,22 +3,22 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) { create(:user) }
     
-  it { is_expected.to have_many(:posts) }
-  it { is_expected.to have_many(:comments) }
-  it { is_expected.to have_many(:votes) }
-  it { is_expected.to have_many(:favorites) }
+  it { should have_many(:posts) }
+  it { should have_many(:comments) }
+  it { should have_many(:votes) }
+  it { should have_many(:favorites) }
   
-  it { is_expected.to validate_presence_of(:name) }
-  it { is_expected.to validate_length_of(:name).is_at_least(1) }
+  it { should validate_presence_of(:name) }
+  it { should validate_length_of(:name).is_at_least(1) }
   
-  it { is_expected.to validate_presence_of(:email) }
-  it { is_expected.to validate_length_of(:email).is_at_least(3) }
-  it { is_expected.to validate_uniqueness_of(:email) }
-  it { is_expected.to allow_value("user@bloccit.com").for(:email) }
+  it { should validate_presence_of(:email) }
+  it { should validate_length_of(:email).is_at_least(3) }
+  it { should validate_uniqueness_of(:email).case_insensitive }
+  it { should allow_value("user@bloccit.com").for(:email) }
   
-  it { is_expected.to validate_presence_of(:password) }
-  it { is_expected.to have_secure_password }
-  it { is_expected.to validate_length_of(:password).is_at_least(6) }
+  it { should validate_presence_of(:password) }
+  it { should have_secure_password }
+  it { should validate_length_of(:password).is_at_least(6) }
   
   describe "attributes" do
     it "should have name and email attributes" do
