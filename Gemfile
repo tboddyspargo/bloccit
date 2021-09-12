@@ -1,15 +1,16 @@
 source 'https://rubygems.org'
-ruby '2.7.2'
-
+ruby '>= 2.5.9', '< 2.7'
 # Last used with bundler 1.17.3
+gem 'rails', '~> 4.2.11'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.11.3'
+# Bootstrap style library and dependencies
+gem 'bootstrap-sass', '~> 3'
+gem 'sass-rails', '~> 6'
+gem 'jquery-rails', '~> 4' # required for bootstrap js functionality
+gem 'rails-ujs' # required for native rails js handling of buttons/links
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks', '~> 5'
-
-gem 'bootstrap-sass'
+gem 'turbolinks'
 
 # Use for encrypting User passwords
 gem 'bcrypt', '~> 3'
@@ -20,10 +21,10 @@ gem 'sprockets', '< 4'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 2'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', '~> 11'
+  gem 'byebug'
 end
 
 group :development, :test do
@@ -31,16 +32,16 @@ group :development, :test do
   gem 'sqlite3', '~> 1.3.6'
   
   # Run rpsec tests.
-  gem 'rspec-rails', '~> 4.0'
+  gem 'rspec-rails', '~> 4'
   
   # Use facoties to build data quickly.
-  gem 'factory_bot_rails', '~> 5.0'
+  gem 'factory_bot_rails', '~> 5'
   
   # for creating fake data.
-  gem 'faker', '~> 1.0'
+  gem 'faker', '~> 1'
   
   # for easier test syntax
-  gem 'shoulda', '~> 4.0'
+  gem 'shoulda', '~> 4'
 end
 
 group :production do
