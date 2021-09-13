@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  config.action_mailer.default_url_options = { host: 'limitless-scrubland-98400.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'muyleche-bloccit.herokuapp.com' }
 end

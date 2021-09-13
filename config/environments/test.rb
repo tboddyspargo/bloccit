@@ -41,5 +41,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
 
-  config.action_mailer.default_url_options = { host: 'bloccit-muyleche.c9users.io' }
+  config.action_mailer.default_url_options = { host: 'boddyspargo.com' }
 end
