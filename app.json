@@ -1,0 +1,18 @@
+{
+  "name": "Bloccit",
+  "description": "This web application is a reddit-styled forum site written in Ruby on Rails.",
+  "repository": "https://github.com/tboddyspargo/bloccit",
+  "stack": "heroku-20",
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev"
+    }
+  ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "bundle exec rspec spec"
+      }
+    }
+  }
+}
