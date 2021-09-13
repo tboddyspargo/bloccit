@@ -13,7 +13,7 @@ RSpec.describe TopicsController, type: :controller do
       
       it "assigns my_topic to @topics" do
         get :index
-        expect(assigns(:topics)).to eq([my_topic])
+        expect(assigns(:topics)).to include(my_topic)
       end
     end
     
@@ -87,7 +87,7 @@ RSpec.describe TopicsController, type: :controller do
       
       it "assigns my_topic to @topics" do
         get :index
-        expect(assigns(:topics)).to eq([my_topic])
+        expect(assigns(:topics)).to include(my_topic)
       end
     end
     
@@ -161,7 +161,7 @@ RSpec.describe TopicsController, type: :controller do
 
       it "assigns Topic.all to topic" do
         get :index
-        expect(assigns(:topics)).to eq([my_topic])
+        expect(assigns(:topics)).to include(my_topic)
       end
     end
 
