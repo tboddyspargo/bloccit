@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
+  respond_to :html, :json
+  
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.visible_to(current_user)
+    respond_with @user
   end
   
   def new
     @user = User.new
+    respond_with @user, location: root_path
   end
 
   def create
@@ -18,10 +22,9 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "Welcome to Bloccit #{@user.name}!"
       create_session(@user)
-      redirect_to root_path
     else
       flash.now[:alert] = "There was an error creating your account. Please try again."
-      render :new
     end
+    respond_with @user, location: root_path
   end
 end

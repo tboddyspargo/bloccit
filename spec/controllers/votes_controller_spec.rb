@@ -59,7 +59,6 @@ RSpec.describe VotesController, type: :controller do
     describe "POST down_vote" do
       it "the users first vote increases number of post votes by one" do
         votes = user_post.votes.count
-    byebug
         post :down_vote, params: { post_id: user_post.id }
         expect(user_post.votes.count).to eq(votes + 1)
       end

@@ -4,10 +4,10 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.find_by(email: params[:email].downcase)
+    user = User.find_by(email: params[:session][:email].downcase)
     
     respond_with(user) do |format|
-      if user && user.authenticate(params[:password])
+      if user && user.authenticate(params[:session][:password])
         create_session(user)
         format.html { redirect_to root_path, notice: "Welcome, #{user.name}!" }
       else
