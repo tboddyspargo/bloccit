@@ -1,27 +1,25 @@
 source 'https://rubygems.org'
-ruby '>= 2.5.9', '< 2.7'
+ruby '~> 2.5', '< 3.0'
 # Last used with bundler 1.17.3
-gem 'rails', '~> 4.2.11'
+gem 'rails', '~> 5.0.0'
 
 # Bootstrap style library and dependencies
 gem 'bootstrap-sass', '~> 3'
-gem 'sass-rails', '~> 6'
-gem 'jquery-rails', '~> 4' # required for bootstrap js functionality
-gem 'rails-ujs' # required for native rails js handling of buttons/links
+gem 'sass-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
 # Use for encrypting User passwords
-gem 'bcrypt', '~> 3'
+gem 'bcrypt'
 
 # Fixes for dependency issues.
-gem 'bigdecimal', '~> 1.4.4'
-gem 'sprockets', '< 4'
+# gem 'bigdecimal', '~> 1.4.4'
+# gem 'sprockets', '< 4'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2'
+  gem 'web-console'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -32,24 +30,26 @@ group :development, :test do
   gem 'sqlite3', '~> 1.3.6'
   
   # Run rpsec tests.
-  gem 'rspec-rails', '~> 4'
+  gem 'rspec-rails'
   
   # Use facoties to build data quickly.
-  gem 'factory_bot_rails', '~> 5'
+  gem 'factory_bot_rails'
   
   # for creating fake data.
-  gem 'faker', '~> 1'
+  gem 'faker'
   
   # for easier test syntax
-  gem 'shoulda', '~> 4'
+  gem 'shoulda'
 end
 
 group :production do
   # Use Uglifier as compressor for JavaScript assets
   gem 'uglifier'
   
-  gem 'pg', '~> 0.15'
+  # heroku requires using postgresql for production deploys.
+  gem 'pg'
 
+  # heroku requires rails_12factor for ENV variables in production deploys.
   gem 'rails_12factor'
  end
  
