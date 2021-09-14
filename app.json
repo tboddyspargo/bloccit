@@ -6,10 +6,20 @@
   "addons": ["heroku-postgresql:hobby-dev"],
   "environments": {
     "review": {
-      "addons": ["heroku-postgresql:hobby-dev"]
+      "addons": ["heroku-postgresql:hobby-dev"],
+      "scripts": {
+        "postdeploy": "bundle exec rake db:schema:load db:seed"
+      }
+    },
+    "staging": {
+      "scripts": {
+        "postdeploy": "bundle exec rake db:migrate"
+      }
+    },
+    "production": {
+      "scripts": {
+        "postdeploy": "bundle exec rake db:migrate"
+      }
     }
-  },
-  "scripts": {
-    "postdeploy": "bundle exec rake db:schema:load db:seed"
   }
 }
