@@ -4,6 +4,7 @@ ruby '~> 2.5', '< 3.0'
 gem 'rails', '~> 5.0.0'
 
 # Bootstrap style library and dependencies
+gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3'
 gem 'sass-rails'
 
