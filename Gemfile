@@ -13,6 +13,9 @@ gem 'turbolinks'
 # Use for encrypting User passwords
 gem 'bcrypt'
 
+# In Rails 5.0 the 'respond_to' and 'respond_with' methods for specifying controller behavior were moved to the responders gem.
+gem 'responders'
+
 # Fixes for dependency issues.
 # gem 'bigdecimal', '~> 1.4.4'
 # gem 'sprockets', '< 4'
@@ -20,9 +23,6 @@ gem 'bcrypt'
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console'
-
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
 end
 
 group :development, :test do
@@ -31,6 +31,9 @@ group :development, :test do
   
   # Run rpsec tests.
   gem 'rspec-rails'
+
+  # In Rails 5.0 'assigns' and 'assert_template' have been moved to a different gem.
+  gem 'rails-controller-testing'
   
   # Use facoties to build data quickly.
   gem 'factory_bot_rails'
@@ -40,6 +43,9 @@ group :development, :test do
   
   # for easier test syntax
   gem 'shoulda'
+
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
 end
 
 group :production do

@@ -1,21 +1,19 @@
 class CommentsController < ApplicationController
-  
+  respond_to :html, :json
   before_action :require_sign_in
-  
   before_action :authorize_user, only: [:destroy]
   
-  def create 
+  def create
     @post = Post.find(params[:post_id])
     comment = @post.comments.new(comment_params)
     comment.user = current_user
     
     if comment.save
       flash[:notice] = "Comment saved successfully."
-      redirect_to [@post.topic, @post]
     else
       flash.now[:alert] = "There was a problem saving the comment. Please try again."
-      redirect_to [@post.topic, @post]
     end
+    respond_with @post.topic, @post
   end
   
   def destroy
@@ -24,11 +22,10 @@ class CommentsController < ApplicationController
     
     if comment.destroy
       flash[:notice] = "Comment was deleted."
-      redirect_to [@post.topic, @post]
     else
       flash.now[:alert] = "There was a problem deleting the comment. Please try agian."
-      redirect_to [@post.topic, @post]
     end
+    respond_with @post.topic, @post
   end
   
   private
@@ -40,7 +37,7 @@ class CommentsController < ApplicationController
     comment = Comment.find(params[:id])
     unless current_user == comment.user ||  current_user.admin?
       flash.now[:alert] = "You do not have permission to delete a comment."
-      redirect_to [comment.post.topic, comment.post]
+      respond_with comment.post.topic, comment.post
     end
   end
 end
