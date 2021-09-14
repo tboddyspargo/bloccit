@@ -1,4 +1,4 @@
-class Topic < ActiveRecord::Base
+class Topic < ApplicationRecord
   has_many :posts, dependent: :destroy
 
   validates :name, length: { minimum: 1 }, presence: true
