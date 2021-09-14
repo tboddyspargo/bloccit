@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  respond_to :html, :json
   before_action :require_sign_in
   
   def create
@@ -11,7 +12,7 @@ class FavoritesController < ApplicationController
       flash[:alert] = "Favoriting failed."
     end
     
-    redirect_to [post.topic, post]
+    respond_with post.topic, post
   end
   
   def destroy 
@@ -24,6 +25,6 @@ class FavoritesController < ApplicationController
       flash[:alert] = "Unfavoriting failed."
     end
     
-    redirect_to [post.topic, post]
+    respond_with post.topic, post
   end
 end

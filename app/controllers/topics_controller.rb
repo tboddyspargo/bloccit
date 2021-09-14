@@ -1,33 +1,37 @@
 class TopicsController < ApplicationController
-  
+  respond_to :html, :json
   before_action :require_sign_in, except: [:index, :show]
   before_action :authorize_user, except: [:index, :show]
   
   def index
     @topics = Topic.all
+    respond_with @topics
   end
   
   def show
     @topic = Topic.find(params[:id])
+    respond_with @topic
   end
   
   def new
     @topic = Topic.new
+    respond_with @topic
   end
   
   def create
     @topic = Topic.new(topic_params)
     
     if @topic.save
-      redirect_to @topic, notice: "Topic was saved successfully."
+      flash[:notice] = "Topic was saved successfully."
     else
       flash.now[:alert] = "Error creating topic. Please try again."
-      render :new
     end
+    respond_with @topic
   end
   
   def edit
     @topic = Topic.find(params[:id])
+    respond_with @topic
   end
   
   def update
@@ -36,11 +40,10 @@ class TopicsController < ApplicationController
     
     if @topic.save
       flash[:notice] = "Topic was updated."
-      redirect_to @topic
     else
       flash.now[:alert] = "Error saving topic. Please try again."
-      render :edit
     end
+    respond_with @topic
   end
   
   def destroy
@@ -48,11 +51,10 @@ class TopicsController < ApplicationController
     
     if @topic.destroy
       flash[:notice] = "\"#{@topic.name}\" was deleted successfully."
-      redirect_to action: :index
     else
       flash.now[:alert] = "There was an error deleting the topic."
-      render :show
     end
+    respond_with @topic, render: :index
   end
   
   private

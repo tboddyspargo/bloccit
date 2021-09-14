@@ -1,16 +1,17 @@
 class PostsController < ApplicationController
-  
+  respond_to :html, :json 
   before_action :require_sign_in, except: :show
-  
   before_action :authorize_user, except: [:show, :new, :create]
   
   def show
     @post = Post.find(params[:id])
+    respond_with @post.topic, @post
   end
 
   def new
     @topic = Topic.find(params[:topic_id])
     @post = Post.new
+    respond_with @topic, @post
   end
   
   def create
@@ -20,15 +21,15 @@ class PostsController < ApplicationController
     
     if @post.save
       flash[:notice] = "Post was saved."
-      redirect_to [@topic, @post]
     else
       flash.now[:alert] = "There was an error saving the post. Please try again."
-      render :new
     end
+    respond_with @topic, @post
   end
 
   def edit
     @post = Post.find(params[:id])
+    respond_with @post.topic, @post
   end
   
   def update
@@ -37,11 +38,10 @@ class PostsController < ApplicationController
     
     if @post.save
       flash[:notice] = "Post was updated."
-      redirect_to [@post.topic, @post]
     else
       flash.now[:alert] = "There was an error saving the post. Please try again."
-      render :edit
     end
+    respond_with @post.topic, @post
   end
   
   def destroy
@@ -49,11 +49,10 @@ class PostsController < ApplicationController
     
     if @post.destroy
       flash[:notice] = "\"#{@post.title}\" was deleted successfully."
-      redirect_to @post.topic
     else
       flash.now[:alert] = "There was an error deleting the pos."
-      render :show
     end
+    respond_with @post.topic
   end
   
   private
