@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '~> 2.5', '< 3.0'
 # Last used with bundler 1.17.3
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.1.0'
 
 # Bootstrap style library and dependencies
 gem 'jquery-rails'
@@ -16,10 +16,6 @@ gem 'bcrypt'
 
 # In Rails 5.0 the 'respond_to' and 'respond_with' methods for specifying controller behavior were moved to the responders gem.
 gem 'responders'
-
-# Fixes for dependency issues.
-# gem 'bigdecimal', '~> 1.4.4'
-# gem 'sprockets', '< 4'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -47,6 +43,10 @@ group :development, :test do
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  gem 'spring'
+
+  gem 'listen'
 end
 
 group :production do
