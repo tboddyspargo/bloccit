@@ -7,6 +7,7 @@ capybara-*.html
 /public/system
 /coverage/
 /spec/tmp
+/spec/examples.txt
 *.orig
 rerun.txt
 pickle-email-*.html
@@ -67,3 +68,10 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 /public/uploads
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

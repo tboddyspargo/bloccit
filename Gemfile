@@ -1,18 +1,20 @@
 source 'https://rubygems.org'
 ruby '~> 2.5', '< 3.0'
 # Last used with bundler 1.17.3
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 6.0.0'
 
 # Bootsnap drastically improves application start times.
 gem 'bootsnap'
 
-# Bootstrap style library and dependencies
-gem 'jquery-rails'
-gem 'bootstrap-sass', '~> 3'
-gem 'sass-rails'
+# Rails 6 uses webpacker as the default javascript compiler.
+gem 'webpacker', '6.0.0.rc.5'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# Use bootstrap 3 through gem since Webpacker 6 will discourage managing styles.
+gem 'bootstrap-sass'
+gem 'sassc-rails'
+
+# Using sprockets for SCSS will require the sass-rails gem.
+gem 'sass-rails'
 
 # Use for encrypting User passwords
 gem 'bcrypt'
@@ -27,7 +29,7 @@ end
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.3.6'
+  gem 'sqlite3', '~> 1.4'
   
   # Run rpsec tests.
   gem 'rspec-rails'
@@ -47,15 +49,14 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
+  # The dev environment can automatically reload when it sees files change.
   gem 'spring'
 
+  # Spring and db gems need listen.
   gem 'listen'
 end
 
 group :production do
-  # Use Uglifier as compressor for JavaScript assets
-  gem 'uglifier'
-  
   # heroku requires using postgresql for production deploys.
   gem 'pg'
 
