@@ -70,4 +70,10 @@ ActiveRecord::Schema.define(version: 2021_09_15_150152) do
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "posts"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "votes", "posts"
+  add_foreign_key "votes", "users"
 end
