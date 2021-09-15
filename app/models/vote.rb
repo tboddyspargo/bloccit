@@ -9,6 +9,6 @@ class Vote < ApplicationRecord
   private
   
   def update_post
-    post.update_rank
+    self.post.update_rank
   end
 end

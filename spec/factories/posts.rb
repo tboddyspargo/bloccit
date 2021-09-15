@@ -1,3 +1,4 @@
+require 'random_data'
 FactoryBot.define do
   factory :post do
     title { RandomData.random_sentence }
