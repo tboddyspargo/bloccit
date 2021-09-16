@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '~> 2.5', '< 3.0'
 # Last used with bundler 1.17.3
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.1.0'
 
 # Bootsnap drastically improves application start times.
 gem 'bootsnap'
@@ -9,12 +9,9 @@ gem 'bootsnap'
 # Rails 6 uses webpacker as the default javascript compiler.
 gem 'webpacker', '6.0.0.rc.5'
 
-# Use bootstrap 3 through gem since Webpacker 6 will discourage managing styles.
+# Use bootstrap 3 through gem since Webpacker 6 will not manage styles by default, only JS.
 gem 'bootstrap-sass'
 gem 'sassc-rails'
-
-# Using sprockets for SCSS will require the sass-rails gem.
-gem 'sass-rails'
 
 # Use for encrypting User passwords
 gem 'bcrypt'
