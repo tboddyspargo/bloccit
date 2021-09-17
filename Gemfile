@@ -1,66 +1,34 @@
 source 'https://rubygems.org'
 ruby '>= 2.5.9'
-# Last used with bundler 1.17.3
 gem 'rails', '~> 6.1.0'
-
-# Ruby 3 doesn't come with webrick by default anymore.
-gem 'webrick'
-
-# Bootsnap drastically improves application start times.
-gem 'bootsnap'
-
-# Rails 6 uses webpacker as the default javascript compiler.
-gem 'webpacker', '6.0.0.rc.5'
-
-# Use bootstrap 3 through gem since Webpacker 6 will not manage styles by default, only JS.
-gem 'bootstrap-sass'
-gem 'sassc-rails'
-
-# Use for encrypting User passwords
-gem 'bcrypt'
-
-# In Rails 5.0 the 'respond_to' and 'respond_with' methods for specifying controller behavior were moved to the responders gem.
-gem 'responders'
+# ===================================
+gem 'bcrypt'                      # Use for encrypting User passwords
+gem 'bootsnap'                    # Bootsnap drastically improves application start times.
+# TODO: update to latest bootstrap.
+gem 'bootstrap-sass'              # Use bootstrap 3 through gem since Webpacker 6 will not manage styles by default, only JS.
+gem 'responders'                  # In Rails 5.0 the 'respond_to' and 'respond_with' methods for specifying controller behavior were moved to the responders gem.
+gem 'sassc-rails'                 # faster sass compiler written in C.
+gem 'webpacker', '6.0.0.rc.5'     # Rails 6 uses webpacker as the default javascript compiler.
+gem 'webrick'                     # Ruby 3 doesn't come with webrick by default anymore.
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console'
+  gem 'web-console'               # Access an IRB console on exception pages or by using <%= console %> in views.
 end
 
 group :development, :test do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
-  
-  # Run rpsec tests.
+  gem 'byebug'                    # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'factory_bot_rails'         # Use facoties to build data quickly.
+  gem 'faker'                     # Provides classes for creating fake data.
+  gem 'listen'                    # Spring and db gems need listen.
+  gem 'rails-controller-testing'  # In Rails 5.0 'assigns' and 'assert_template' have been moved to a different gem.
   gem 'rspec-rails'
-
-  # In Rails 5.0 'assigns' and 'assert_template' have been moved to a different gem.
-  gem 'rails-controller-testing'
-  
-  # Use facoties to build data quickly.
-  gem 'factory_bot_rails'
-  
-  # for creating fake data.
-  gem 'faker'
-  
-  # for easier test syntax
-  gem 'shoulda'
-
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-
-  # The dev environment can automatically reload when it sees files change.
-  gem 'spring', '>= 3'
-
-  # Spring and db gems need listen.
-  gem 'listen'
+  gem 'shoulda'                   # Provides more readable test syntax
+  gem 'spring', '>= 3'            # The dev environment can automatically reload when it sees files change.
+  gem 'sqlite3', '~> 1.4'         # Use sqlite3 as the database for Active Record
 end
 
 group :production do
-  # heroku requires using postgresql for production deploys.
-  gem 'pg'
-
-  # heroku requires rails_12factor for ENV variables in production deploys.
-  gem 'rails_12factor'
+  gem 'pg'                        # heroku requires using postgresql for production deploys.
+  gem 'rails_12factor'            # heroku requires rails_12factor for ENV variables in production deploys.
  end
  
