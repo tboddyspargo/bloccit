@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
-ruby '~> 2.5', '< 3.0'
+ruby '>= 2.5.9'
 # Last used with bundler 1.17.3
 gem 'rails', '~> 6.1.0'
+
+# Ruby 3 doesn't come with webrick by default anymore.
+gem 'webrick'
 
 # Bootsnap drastically improves application start times.
 gem 'bootsnap'
@@ -47,7 +50,7 @@ group :development, :test do
   gem 'byebug'
 
   # The dev environment can automatically reload when it sees files change.
-  gem 'spring'
+  gem 'spring', '>= 3'
 
   # Spring and db gems need listen.
   gem 'listen'
